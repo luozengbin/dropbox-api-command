@@ -48,6 +48,7 @@ You can find Dropbox's API documentation at L<https://www.dropbox.com/developers
 
 has 'debug' => (is => 'rw', isa => 'Bool', default => 0);
 has 'error' => (is => 'rw', isa => 'Str', predicate => 'has_error');
+has 'https_proxy' => (is => 'rw', isa => 'Str');
 has 'key' => (is => 'rw', isa => 'Str');
 has 'secret' => (is => 'rw', isa => 'Str');
 has 'login_link' => (is => 'rw', isa => 'Str');

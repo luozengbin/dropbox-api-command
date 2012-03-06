@@ -291,6 +291,11 @@ sub help {
 sub setup {
     my $config = {};
 
+    print "Please Proxy Server URL: ";
+    chomp( my $https_proxy = <STDIN> );
+    die 'Get API Key from https://www.dropbox.com/developers' unless $https_proxy;
+    $config->{https_proxy} = $https_proxy;
+    
     print "Please Input API Key: ";
     chomp( my $key = <STDIN> );
     die 'Get API Key from https://www.dropbox.com/developers' unless $key;
@@ -302,6 +307,7 @@ sub setup {
     $config->{secret} = $secret;
 
     $config->{callback_url} = '';
+    
     my $box = Net::Dropbox::API->new($config);
     my $login_link = $box->login;
     die $box->error if $box->error;
